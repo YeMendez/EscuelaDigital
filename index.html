@@ -48,21 +48,26 @@
 </head>
 <body>
   <div id="contenedor">
-  <div id="pasoRepaso">
-    <h2>🌟 Repaso antes de comenzar</h2>
-    <ul>
-      <li>🖱️ <strong>Clic izquierdo:</strong> el botón principal del mouse, se usa para seleccionar o avanzar.</li>
-      <li>🖱️ <strong>Clic derecho:</strong> muestra un menú con más opciones. No siempre lo usaremos.</li>
-      <li>⌨️ <strong>Minúscula:</strong> ejemplo: <code>juanita</code></li>
-      <li>⬆️ <strong>Mayúscula (Shift):</strong> mantener presionada <strong>Shift</strong> y escribir: <code>JUANITA</code></li>
-      <li>🔒 <strong>BloqMayús (Mayúscula fija):</strong> activa las letras grandes sin mantener Shift.</li>
-      <li>✏️ <strong>Primera letra en mayúscula:</strong> <code>Juanita</code></li>
-    </ul>
-    <p>No te preocupes si algo no sale perfecto. ¡Estamos aprendiendo juntos! 😊</p>
-    <button onclick="mostrarPaso(0)">Ir al inicio del ejercicio</button>
-  </div>
+    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+      <img src="logo_umayor.jpeg" alt="Logo Universidad Mayor" style="height: 60px; margin-right: 15px;">
+      <h1 style="margin: 0; font-size: 1.6em;">Curso Digital - Personas Mayores</h1>
+    </div>
 
-    <div id="paso0">
+    <div id="pasoRepaso">
+      <h2>🌟 Repaso antes de comenzar</h2>
+      <ul>
+        <li>🖱️ <strong>Clic izquierdo:</strong> el botón principal del mouse, se usa para seleccionar o avanzar.</li>
+        <li>🖱️ <strong>Clic derecho:</strong> muestra un menú con más opciones. No siempre lo usaremos.</li>
+        <li>⌨️ <strong>Minúscula:</strong> ejemplo: <code>juanita</code></li>
+        <li>⬆️ <strong>Mayúscula (Shift):</strong> mantener presionada <strong>Shift</strong> y escribir: <code>JUANITA</code></li>
+        <li>🔒 <strong>BloqMayús (Mayúscula fija):</strong> activa las letras grandes sin mantener Shift.</li>
+        <li>✏️ <strong>Primera letra en mayúscula:</strong> <code>Juanita</code></li>
+      </ul>
+      <p>No te preocupes si algo no sale perfecto. ¡Estamos aprendiendo juntos! 😊</p>
+      <button onclick="mostrarPaso(0)">Comenzar</button>
+    </div>
+
+    <div id="paso0" class="oculto">
       <h2>Bienvenido/a al curso digital para personas mayores de Huechuraba</h2>
       <p>Vamos a practicar el uso del teclado y el mouse. No te preocupes por equivocarte, ¡lo importante es intentarlo! 😊</p>
       <button onclick="mostrarPaso(1)">Comenzar</button>
@@ -87,14 +92,14 @@
     </div>
 
     <div id="paso4" class="oculto">
-      <p><strong>Ahora escribe tu nombre en MAYÚSCULAS usando la tecla Shift:</strong></p>
+      <p><strong>Activa la tecla BloqMayús (mayúscula fija) y escribe tu nombre en mayúsculas:</strong></p>
       <input type="text" id="mayus" placeholder="ej: JUANITA">
       <button onclick="verificarMayusculas()">Verificar</button>
       <p id="mensajeMayus" class="mensaje oculto"></p>
     </div>
 
     <div id="paso5" class="oculto">
-      <p><strong>Activa la tecla Bloq Mayús (mayúscula fija) y escribe: HOLA</strong></p>
+      <p><strong>Ahora escribe la palabra: HOLA</strong></p>
       <input type="text" id="bloq" placeholder="ej: HOLA">
       <button onclick="verificarBloq()">Verificar</button>
       <p id="mensajeBloq" class="mensaje oculto"></p>
@@ -112,6 +117,7 @@
     <div id="final" class="oculto">
       <h3>🎉 ¡Felicitaciones!</h3>
       <p>Terminaste la práctica básica. Sigue aprendiendo paso a paso. ¡Lo estás haciendo increíble! 💪</p>
+      <button onclick="alert('¡Gracias por participar!')">Terminar</button>
     </div>
   </div>
 
@@ -147,11 +153,11 @@
       const val = document.getElementById('mayus').value;
       const mensaje = document.getElementById('mensajeMayus');
       if (val && val === val.toUpperCase()) {
-        mensaje.textContent = '¡Excelente! Usaste la tecla Shift correctamente.';
+        mensaje.textContent = '¡Excelente! Usaste correctamente BloqMayús.';
         mensaje.classList.remove('oculto');
         setTimeout(() => mostrarPaso(5), 2000);
       } else {
-        mensaje.textContent = 'Intenta escribir todo en mayúsculas con Shift.';
+        mensaje.textContent = 'Intenta escribir todo en mayúsculas con BloqMayús.';
         mensaje.classList.remove('oculto');
       }
     }
@@ -160,11 +166,11 @@
       const val = document.getElementById('bloq').value;
       const mensaje = document.getElementById('mensajeBloq');
       if (val === 'HOLA') {
-        mensaje.textContent = '¡Muy bien! Usaste la mayúscula fija (Bloq Mayús).';
+        mensaje.textContent = '¡Muy bien! Usaste la mayúscula fija (BloqMayús).';
         mensaje.classList.remove('oculto');
         setTimeout(() => mostrarPaso(6), 2000);
       } else {
-        mensaje.textContent = 'Recuerda activar Bloq Mayús y escribir HOLA.';
+        mensaje.textContent = 'Recuerda activar BloqMayús y escribir HOLA.';
         mensaje.classList.remove('oculto');
       }
     }
